@@ -1,0 +1,9 @@
+<article class="post">
+  <h1><%= post.title %></h1>
+  <p class="post_details">Written by <%= post.author_name %> on <%= post.created_at.strftime("%m/%d/%Y") %> || <span class="like_count"><%= post.likes_count %></span> likes</p>
+  <p class="post_body"><%= post.body %></p>
+  <form class="post_like" action="/posts/<%= post.id %>/like" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type="submit" class="post_like_button" value="👍 Like!">
+  </form>
+</article>
