@@ -1,0 +1,25 @@
+<div class="container">
+	<h1>New Auction</h1>
+
+	<% if @errors %>
+		<% @errors.each do |error| %>
+			<%= erb :"/_error", locals:{error:error}%>
+		<% end %>
+	<% end %>
+
+	<form method="post" action="/auctions">
+	  <label for="item">Item:</label><br>
+	  <input id="item" name="auction[item]" type="text" value="<%= @auction.try(:item) %>"><br>
+
+<!-- Need to make radial buttons for categories -->
+	  <label for="category_id">Category:</label><br>
+	  <input id="category_id" name="auction[category_id]" type="text" value="<%= @auction.try(:category_id) %>"><br>
+
+	  <label for="description-textarea">Description:</label><br>
+	  <textarea id="description-textarea" name="auction[description]"><%= @auction.try(:description) %></textarea><br>
+
+	  <input type="hidden" name="auction[auctioner_id]" value="<%= "#{current_user.id}" %>">
+
+	  <input type="submit" value="Let the Bidding Begin">
+	</form>
+</div>
