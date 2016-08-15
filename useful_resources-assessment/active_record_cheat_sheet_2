@@ -1,0 +1,41 @@
+
+gem install bundler
+
+---generally run the four commands below (or at least the first two)------------------------------
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+--------------------------------------------
+bundle exec rake db:version
+bundle exec rake spec
+
+bundle exec rake generate:migration NAME=create_
+bundle exec rake generate:model NAME=
+
+bundle exec rake console
+
+bundle exec rake db:rollback
+
+bundle exec rake db:drop
+
+
+Other==========================================================
+Look at table in sqlite
+$ sqlite3 db/database.sqlite3
+
+sqlite> PRAGMA table_info(dogs);
+
+useful ActiveRecord in irb
+Dog.where(age: 1)
+Dog.where("age = ? and name like ?", 1, '%Te%')
+Dog.order(name: :desc)
+Dog.pluck(:name, :age)
+
+new_dog.save
+
+.find_or_initialize_by  (doesn't save to database)
+.find_or_create_by   (creates and saves to database)
+
+tenley.assign_attributes(age: 3, license: "OH-1234567")
+Contact GitHub API Training Shop Blog About
