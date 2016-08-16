@@ -35,6 +35,22 @@ post '/auctions' do
 	end
 end
 
+get "/auctions/:id/edit" do 
+	@auction = Auction.find(params[:id])
+	# p "Auctioner id ============================"
+	# p @auction.auctioner_id
+	# p current_user.id
+  redirect "/not_authorized" if current_user.id != @auction.auctioner_id
+  erb :"auctions/edit"
+end
+
+put "/auctions/:id" do
+  @auction = Auction.find(params[:id])
+  redirect "/not_authorized" if current_user.id != @auction.auctioner_id
+  @auction.update_attributes(params[:auction])
+  redirect "auctions/#{@auction.id}"
+end
+
 # post '/auctions/:id/comments' do
 # 	@comment = Comment.create(
 # 		content: params[:comment],

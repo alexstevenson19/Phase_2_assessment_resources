@@ -9,11 +9,14 @@
 
 	<form method="post" action="/auctions">
 	  <label for="item">Item:</label><br>
-	  <input id="item" name="auction[item]" type="text" value="<%= @auction.try(:item) %>"><br>
+	  <input id="item" name="auction[item]" type="text" value="<%= @auction.try(:item) %>"><br><br>
 
 <!-- Need to make radial buttons for categories -->
 	  <label for="category_id">Category:</label><br>
-	  <input id="category_id" name="auction[category_id]" type="text" value="<%= @auction.try(:category_id) %>"><br>
+	<!--   <input id="category_id" name="auction[category_id]" type="text" value="<%#= @auction.try(:category_id) %>"><br> -->
+	  <input type="radio" name="auction[category_id]" value=1> Furniture<br>
+<!-- 	  <input type="hidden" name="auction[category_id]" value=1> -->
+	  <input type="radio" name="auction[category_id]" value=2> Sports<br><br>
 
 	  <label for="description-textarea">Description:</label><br>
 	  <textarea id="description-textarea" name="auction[description]"><%= @auction.try(:description) %></textarea><br>
