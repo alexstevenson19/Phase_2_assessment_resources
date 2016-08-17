@@ -1,0 +1,21 @@
+<div class="auction_box">
+
+  <%= erb :"/auctions/_show", locals:{ auction: @auction } %>
+
+  <div class="auction_times">
+    <p>Auction ends: <%= long_form_date(@auction.ends_at) %></p>
+  </div>
+</div>
+
+<div class="bid_box">
+  <h3>Place Bids:</h3>
+  <p> Number of Bidders: <%= @auction.bids.count %>
+  <form method="POST" action="/auctions/<%= @auction.id %>/bids">
+    <input type="hidden" name="bid[auction_id]" value="<%= @auction.id %>">
+    <input type="hidden" name="bid[bidder_id]" value= "<%= current_user.id %>">
+    <label for="amount">$:</label><br>
+    <input id="amount" name="bid[amount]" type="number"><br>
+    <input type="submit" value="Make Bid">
+  </form>
+</div>
+

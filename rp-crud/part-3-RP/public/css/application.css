@@ -1,0 +1,50 @@
+.container {
+  margin: 20px auto;
+  width: 700px;
+  padding: 0px 20px 20px 20px;
+  border: 2px dashed #0000cc;
+}
+
+nav {
+  background-color: #9494b8;
+}
+
+nav ul {
+  margin: 0px;
+  list-style-type: none;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 15px;
+}
+
+.delete {
+  background: none;
+  border: none;
+  font-size: 1em;
+  color: blue;
+  padding: 0px;
+  text-decoration: underline;
+}
+
+.inline {
+  display: inline;
+}
+
+.auction_box {
+  margin: 20px auto;
+  width: 500px;
+  padding: 0px 20px 20px 20px;
+  border: 2px solid #0000cc;
+}
+
+.bid_box {
+  display: inline-block;
+  float: right;
+  margin-right: 75px;
+  width: 300px;
+  padding: 0px 20px 20px 20px;
+  border: 2px solid #0000cc;
+}

@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <ul>
+    <li><a href="/">home</a></li>
+      <% if logged_in? %>
+      <li><a href="/users/<%=current_user.id%>"><%= current_user.username%></a></li>
+      <li><a href="/logout">logout</a></li>
+      <li><a href="/auctions">current auctions</a>
+      <% else %>
+      <li><a href="/users/new">register</a></li>
+      <li><a href="/login/new">login</a></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>

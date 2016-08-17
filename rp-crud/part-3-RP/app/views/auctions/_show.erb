@@ -1,0 +1,16 @@
+<!-- <div class="container"> -->
+  <h2><a href="/auctions/<%=auction.id%>"><%= auction.name %></a></h2>
+  <article>
+    <span>condition: <%= auction.condition %></span>
+    <p><%= auction.description %></p>
+  </article>
+
+  <% if auction.auctioner_id == current_user.id %>
+    <a href="/auctions/<%= auction.id %>/edit">Edit</a><br>
+
+  <form method="post" action="/auctions/<%= auction.id %>">
+    <input type="hidden", name="_method" value="delete">
+    <input class="delete" type="submit" value="Delete Auction">
+  </form>
+  <% end %>
+<!-- </div> -->

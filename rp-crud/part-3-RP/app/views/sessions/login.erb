@@ -1,0 +1,15 @@
+<div class="container">
+  <h1> Login </h1>
+
+  <% if @errors %>
+    <h5><%= @errors %></h5>
+  <% end %>
+
+  <form action="/login" method="post">
+    <label for="username">username</label>
+    <input type="text" name="username" placeholder="username"><br>
+    <label for="password">password</label>
+    <input type="password" name="password" placeholder="password"><br>
+    <input type="submit" value="Login">
+  </form>
+</div>
