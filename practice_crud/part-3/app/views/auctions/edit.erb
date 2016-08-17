@@ -1,0 +1,12 @@
+<div class="container">
+	<h1>Edit Auction Details</h1>
+
+	<form method="POST" action="/auctions/<%= @auction.id %>">
+	  <input type="hidden" name="_method" value="PUT">
+	  <label for="auction[item]">Item</label>
+	  <input type="text" name="auction[item]" value="<%= @auction.item %>" placeholder="<%= @auction.item %>"><br>
+	  <label for="auction[description]">Description</label>
+	  <input type="text" name="auction[description]" value="<%= @auction.description %>" placeholder="<%= @auction.description %>"><br>
+	  <input type="submit">
+	</form>
+</div>

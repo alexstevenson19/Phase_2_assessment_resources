@@ -1,0 +1,7 @@
+<div class="container">
+	<% @category.auctions.each do |auction| %>
+		<ul>
+	  	<li><a href="/auctions/<%=auction.id%>"><%= auction.item %></a></li>
+	  </ul>
+	<% end %>
+</div>

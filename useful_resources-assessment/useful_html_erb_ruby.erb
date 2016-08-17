@@ -1,0 +1,43 @@
+#login/register/ etc header for layout.erb =================
+# don't forget to add user id to session in controller
+#     session[:user_id] = @user.id
+<header>
+  <div id="login">
+    <nav>
+      <!-- if session[:user_id]? -->
+      <% if session[:user_id] %>
+      <%= @user = User.find(session[:user_id]) %>
+      <ul>
+        <li><a href="/users/:id"><%= @user.username %></a></li>
+        <li><a href="/logout">logout</a></li>
+        <li><a href="/">home</a></li>
+      </ul>
+      <% else %>
+      <ul>
+        <li><a href="/registration">register</a></li>
+        <li><a href="/login">login</a></li>
+        <li><a href="/">home</a></li>
+      </ul>
+      <% end %>
+    </nav>
+  </div>
+    <%= session.inspect %>
+</header>
+
+
+
+
+
+<div class="container">
+  <h1><%= @user.username %>'s Entries</h1>
+
+  <ul>
+    <% @user.entries.each do |channel| %>
+
+      <li><%= entry.title %></li>
+      <% end %>
+  </ul>
+
+  <p><a href="/">Home</a></p>
+  <a href="/logout">Logout</a>
+</div>

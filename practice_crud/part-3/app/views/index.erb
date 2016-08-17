@@ -1,0 +1,10 @@
+<div class="container">
+	<h1>Abay</h1>
+
+	<% @categories.each do |category| %>
+		<div class="category">
+			<h2><a href="/categories/<%=category.id%>"><%= category.name %></a></h2>
+		</div>
+	<% end %>
+
+</div>

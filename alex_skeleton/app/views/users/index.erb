@@ -1,0 +1,7 @@
+<div class="container">
+	<% User.all.each do |user| %>
+		<ul>
+	  	<li><%= user.username %></li>
+	  </ul>
+	<% end %>
+</div>

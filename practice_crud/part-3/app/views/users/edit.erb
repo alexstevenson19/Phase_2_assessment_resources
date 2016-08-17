@@ -1,0 +1,12 @@
+<div class="container">
+	<h1>Edit User Details</h1>
+
+	<form method="POST" action="/users/<%= current_user.id %>">
+	  <input type="hidden" name="_method" value="PUT">
+	  <label for="user[username]">Userame</label>
+	  <input type="text" name="user[username]" value="<%= current_user.username %>"><br>
+	  <label for="user[email]">Email</label>
+	  <input type="text" name="user[email]" value="<%= current_user.email %>"><br>
+	  <input type="submit">
+	</form>
+</div>

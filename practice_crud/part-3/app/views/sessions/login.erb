@@ -1,0 +1,16 @@
+<div class="container">
+	<h1> Login </h1>
+
+	<% if @errors %>
+	<% @errors.each do |error| %>
+	<%= erb :"/_error", locals:{error:error}%>
+	<% end %>
+	<% end %>
+	<form action="/login" method="post">
+		<label for="email">email</label>
+		<input type="text" name="email" placeholder="email"><br>
+		<label for="password">password</label>
+		<input type="password" name="password" placeholder="password"><br>
+		<input type="submit" value="Login">
+	</form>
+</div>

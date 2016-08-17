@@ -1,0 +1,23 @@
+
+
+<h1><%= current_user.username %></h1>
+<p><%= current_user.email %></p>
+
+<p><a href="/users/<%= current_user.id %>/edit">Edit info</a></p>
+<form method="post" action="/users/<%= current_user.id %>">
+  <input type="hidden", name="_method" value="delete">
+  <input class="delete" type="submit" value="Delete User">
+</form>
+
+
+<!-- If there is an entry or something related to user -->
+<h3> <%=@user.username%>'s Entries </h3>
+<% @user.entries.each do |entry| %>
+<%= erb :"/entries/_show", locals:{ post: entry } %>
+<% end %>
+
+<div class="new_entry">
+<a href="/entries/new">Compose a new entry.
+	</a>
+</div>
+

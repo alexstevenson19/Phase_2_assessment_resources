@@ -1,0 +1,10 @@
+<div class="container">
+	<h2><a href="/auctions/<%=auction.id%>"><%= auction.item %></a></h2>
+	<article>
+		<%= auction.description %>
+	</article>
+
+	<% if auction.auctioner_id == current_user.id %>
+		<a href="/auctions/<%= auction.id %>/edit">Edit</a>
+	<% end %>
+</div>
