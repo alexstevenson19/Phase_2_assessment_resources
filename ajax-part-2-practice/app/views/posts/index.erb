@@ -1,0 +1,10 @@
+<section id="sidebar" class="sidebar right">
+  <h3 id="new_post_link" class="button_anchor">Share Your Thoughts</h3>
+  <%= erb :'posts/_form', { layout: false, locals: { post: @post } } %>
+</section>
+
+<section id="posts" class="left content">
+  <% @posts.each do |post| %>
+    <%= erb :'posts/_post', { layout: false, locals: {:post => post }} %>
+  <% end %>
+</section>
