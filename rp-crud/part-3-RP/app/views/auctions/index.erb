@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Abay</h1>
+
+  <% @auctions.each do |auction| %>
+    <div class="auction">
+      <h2><a href="/auctions/<%=auction.id%>"><%= auction.name %></a></h2>
+    </div>
+  <% end %>
+
+</div>

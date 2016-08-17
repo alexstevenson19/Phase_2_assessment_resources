@@ -1,0 +1,56 @@
+<div class="container">
+
+  <h1><%= current_user.username %></h1>
+  <p><%= current_user.email %></p>
+
+
+
+  <% if current_user.id = @user.id%>
+    <p><a href="/users/<%= current_user.id %>/edit">Edit info</a></p>
+
+  <!--   <form method="post" action="/users/<%= current_user.id %>">
+      <input type="hidden", name="_method" value="delete">
+      <input class="delete" type="submit" value="Delete User">
+    </form> -->
+  <% end %>
+
+  <div class="new_auction">
+  <a href="/auctions/new">Make a new Auction.</a>
+  </div>
+
+  <% if @user.auctions %>
+    <div class="auction_box">
+        <h3> <%=@user.username%>'s Auctions </h3>
+      <% @user.auctions.each do |auction| %>
+      <%= erb :"/auctions/_show", locals:{ auction: auction } %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+
+<% if @user.bids %>
+  <div class="bid_box">
+      <h3> <%=@user.username%>'s Won Bids </h3>
+    <% @user.bids.each do |bid| %>
+      <ul>
+        <!-- if auction.end_time is > current time. -->
+        <li>Amount: <%= bid.amount %>, Item: <%= bid.auction.name %></li>
+      </ul>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @user.bids %>
+  <div class="bid_box">
+      <h3> <%=@user.username%>'s Current Bids </h3>
+    <% @user.bids.each do |bid| %>
+      <ul>
+        <!-- if auction.end_time is < current time. -->
+        <li>Amount: <%= bid.amount %>, Item: <%= bid.auction.name %></li>
+      </ul>
+    <% end %>
+  </div>
+<% end %>
+
+

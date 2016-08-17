@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>New Auction</h1>
+
+  <%= erb :"_errors", layout: false %>
+
+  <form method="post" action="/auctions">
+    <label for="name">Name:</label><br>
+    <input id="name" name="auction[name]" type="text" value="<%= @auction.try(:name) %>"><br><br>
+
+    <label for="condition">Condition:</lable>
+    <select name="auction[condition]">
+      <option value="new">New</option>
+      <option value="good">Good</option>
+      <option value="fair">Fair</option>
+      <option value="poor">Poor</option>
+      <option value="gomi">Gomi</option>
+    </select><br><br>
+
+    <label for="starts_at">Starts At:</label><br>
+    <input id="starts_at" name="auction[starts_at]" type="text" value="<%= @auction.try(:starts_at) %>"><br><br>
+
+    <label for="ends_at">Ends At:</label><br>
+    <input id="ends_at" name="auction[ends_at]" type="text" value="<%= @auction.try(:ends_at) %>"><br><br>
+
+    <label for="description-textarea">Description:</label><br>
+    <textarea id="description-textarea" name="auction[description]"><%= @auction.try(:description) %></textarea><br>
+
+    <input type="hidden" name="auction[auctioner_id]" value="<%= "#{current_user.id}" %>">
+
+    <input type="submit" value="Let the Bidding Begin">
+  </form>
+</div>
